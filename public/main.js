@@ -3,6 +3,7 @@ const { app, BrowserWindow } = require('electron')
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
+        title:"NASQAq",
         width: 800,
         height: 600,
         webPreferences: {
