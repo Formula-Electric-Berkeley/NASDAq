@@ -1,9 +1,13 @@
 import React from 'react';
+import GraphLine from '../GraphLine/GraphLine';
 
 const Layout = () => {
     return (
         <div>
-            <h1>NASDAq</h1>
+            <GraphLine colorHex={"#0aefff"} />
+            <GraphLine colorHex={"#deff0a"} />
+            <GraphLine colorHex={"#89fc00"} />
+            <GraphLine colorHex={"#ff0000"} />
         </div>
     );
 };
