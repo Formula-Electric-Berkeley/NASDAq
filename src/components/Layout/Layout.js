@@ -4,7 +4,7 @@ import GraphLine from '../GraphLine/GraphLine';
 const Layout = () => {
     return (
         <div className="flex flex-col w-full h-screen">
-            <div className='flex justify-center p-10'>
+            <div className='flex justify-center py-7'>
                 <img width={200} src={"./FEBLOGO_NASDAQ.png"} alt="FEBLOGO_NASDAQ" />
             </div>
 
