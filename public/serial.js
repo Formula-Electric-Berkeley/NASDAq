@@ -13,7 +13,7 @@ async function pollPorts() {
                 })
 
                 const parser = device.pipe(new ReadlineParser({ delimiter: '\n' }))
-                parser.on('data', console.log)
+                parser.on('data', handleRx)
             }
         }
     })
@@ -27,3 +27,7 @@ function connect() {
 setTimeout(connect, 2000);
 
 pollPorts()
+
+function handleRx(data) {
+    console.log(data)
+}
