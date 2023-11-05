@@ -1,9 +1,10 @@
 const { app, BrowserWindow } = require('electron')
+var serial = require("./serial")
 
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
-        title:"NASQAq",
+        title: "NASQAq",
         width: 800,
         height: 600,
         webPreferences: {
