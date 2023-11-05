@@ -1,5 +1,6 @@
 import React from 'react';
-import GraphLine from '../GraphLine/GraphLine';
+import Heartbeat from '../Views/Heartbeat/Heartbeat';
+import SerialMonitor from '../Views/SerialMonitor/SerialMonitor';
 
 const Layout = () => {
     return (
@@ -8,16 +9,8 @@ const Layout = () => {
                 <img width={200} src={"./FEBLOGO_NASDAQ.png"} alt="FEBLOGO_NASDAQ" />
             </div>
 
-            <div className="flex justify-around w-full grow">
-                <div className="p-5 w-1/2 h-1/2">
-                    <GraphLine colorHex={"#0aefff"} />
-                    <GraphLine colorHex={"#deff0a"} />
-                </div>
-                <div className="p-5 w-1/2 h-1/2">
-                    <GraphLine colorHex={"#89fc00"} />
-                    <GraphLine colorHex={"#ff0000"} />
-                </div>
-            </div>
+            {/* <Heartbeat/> */}
+            <SerialMonitor/>
         </div>
     );
 };
