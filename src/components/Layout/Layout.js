@@ -9,8 +9,8 @@ const Layout = () => {
                 <img width={200} src={"./FEBLOGO_NASDAQ.png"} alt="FEBLOGO_NASDAQ" />
             </div>
 
-            {/* <Heartbeat/> */}
-            <SerialMonitor/>
+            <Heartbeat/>
+            {/* <SerialMonitor/> */}
         </div>
     );
 };
