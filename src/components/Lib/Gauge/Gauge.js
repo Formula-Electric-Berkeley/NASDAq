@@ -4,7 +4,7 @@ import GaugeChart from 'react-gauge-chart'
 const Gauge = ({units, percent}) => {
     return (
         <div>
-            <GaugeChart id="gauge-chart1" percent={percent} formatTextValue={value => value + ' ' + units} />
+            <GaugeChart id="gauge-chart1" nrOfLevels={20} percent={percent} formatTextValue={value => value + ' ' + units} />
         </div>
     );
 };
