@@ -12,7 +12,9 @@ function createWindow() {
             enableRemoteModule: true,
         }
     })
-
+    
+    win.maximize();
+    
     //load the index.html from a url
     win.loadURL('http://localhost:3000');
 
