@@ -141,7 +141,7 @@ const Landing = () => {
         }
 
         if (component === "Gauge") {
-            return <Gauge percent={0.85} units={"MPH"} />;
+            return <Gauge value={85} units={"MPH"} />;
         }
 
         if (component === "Graph") {
