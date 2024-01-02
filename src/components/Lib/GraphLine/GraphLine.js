@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 
 import Chart from 'chart.js/auto';
 
-const LiveChart = () => {
+const GraphLine = () => {
     const [data, setData] = useState({
         labels: [],
         datasets: [
@@ -58,5 +58,5 @@ const LiveChart = () => {
     );
 };
 
-export default LiveChart;
+export default GraphLine;
 
