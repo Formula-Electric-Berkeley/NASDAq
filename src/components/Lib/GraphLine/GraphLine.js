@@ -46,7 +46,7 @@ const LiveChart = () => {
                     ],
                 };
             });
-        }, 1000);
+        }, 500);
 
         return () => clearInterval(interval);
     }, []);

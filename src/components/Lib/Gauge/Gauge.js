@@ -7,7 +7,6 @@ const Gauge = ({ units, value }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setCurrentValueDemo(Math.random() * 100);
-            // setArcs([{ limit: 30 }, { limit: 35 }, { limit: 100 }])
         }, 1000);
 
         return () => {
