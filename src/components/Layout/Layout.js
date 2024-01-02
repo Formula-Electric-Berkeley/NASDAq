@@ -3,6 +3,7 @@ import { Layout, Model } from 'flexlayout-react';
 import 'flexlayout-react/style/dark.css';
 import GraphLine from '../Lib/GraphLine/GraphLine';
 import Gauge from '../Lib/Gauge/Gauge';
+import Selector from './Selector';
 
 var json = {
     "global": {
@@ -164,7 +165,7 @@ const Landing = () => {
 
     const onAddFromTabSetButton = (node) => {
         (layoutRef.current).addTabToTabSet(node.getId(), {
-            component: "Graph",
+            component: "Selector",
             name: "----------",
         });
 
@@ -173,6 +174,10 @@ const Landing = () => {
     const factory = (node) => {
         console.log(model.toJson());
         var component = node.getComponent();
+
+        if (component === "Selector") {
+            return <Selector/>;
+        }
 
         if (component === "Graph") {
             return <GraphLine colorHex={"#0aefff"} />;
