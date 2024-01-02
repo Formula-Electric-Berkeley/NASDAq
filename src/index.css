@@ -25,7 +25,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 
 /* Track */
@@ -43,5 +43,9 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #f8a100;
+}
+
+.flexlayout__tab {
+    overflow-x: hidden;
 }
 
