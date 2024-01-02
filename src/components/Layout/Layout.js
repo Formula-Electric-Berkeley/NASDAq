@@ -89,14 +89,42 @@ var json = {
                         ]
                     },
                     {
-                        type: "tabset",
+                        type: "row",
                         weight: 50,
                         children: [
                             {
-                                type: "tab",
-                                name: "----------",
-                                component: "Gauge",
-                            }
+                                type: "tabset",
+                                weight: 33.33,
+                                children: [
+                                    {
+                                        type: "tab",
+                                        name: "----------",
+                                        component: "Gauge",
+                                    }
+                                ]
+                            },
+                            {
+                                type: "tabset",
+                                weight: 33.33,
+                                children: [
+                                    {
+                                        type: "tab",
+                                        name: "----------",
+                                        component: "Gauge",
+                                    }
+                                ]
+                            },
+                            {
+                                type: "tabset",
+                                weight: 33.33,
+                                children: [
+                                    {
+                                        type: "tab",
+                                        name: "----------",
+                                        component: "Gauge",
+                                    }
+                                ]
+                            },
                         ]
                     }
                 ]

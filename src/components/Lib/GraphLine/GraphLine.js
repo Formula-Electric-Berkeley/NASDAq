@@ -1,53 +1,62 @@
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine } from 'recharts';
+import React, { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
 
-const GraphLine = ({ colorHex }) => {
-    let data = [{ timestamp: '0', value: 100 }, { timestamp: '1', value: 200 }, { timestamp: '2', value: 400 }, { timestamp: '3', value: -200 }, { timestamp: '4', value: 300 }, { timestamp: '5', value: 100 }, { timestamp: '6', value: 500 }, { timestamp: '7', value: 500 }, { timestamp: '8', value: 500 }];
+import Chart from 'chart.js/auto';
+
+const LiveChart = () => {
+    const [data, setData] = useState({
+        labels: [],
+        datasets: [
+            {
+                label: 'Live Data',
+                borderColor: 'rgb(75, 192, 192)',
+                data: [],
+            },
+        ],
+    });
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+            duration: 0,
+            //easing: 'linear',
+        },
+    };
+
+    useEffect(() => {
+        const maxDataPoints = 20;
+
+        const interval = setInterval(() => {
+            const newLabel = new Date().toLocaleTimeString();
+            const newData = Math.floor(Math.random() * 100);
+
+            setData((prevData) => {
+                const newLabels = [...prevData.labels, newLabel].slice(-maxDataPoints);
+                const newDataPoints = [...prevData.datasets[0].data, newData].slice(-maxDataPoints);
+
+                return {
+                    labels: newLabels,
+                    datasets: [
+                        {
+                            label: 'Live Data',
+                            borderColor: 'rgb(75, 192, 192)',
+                            data: newDataPoints,
+                        },
+                    ],
+                };
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
-        <div className='w-full h-full p-5'>
-            <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke='gray' />
-                    <Line type="monotone" dataKey="value" stroke={colorHex} />
-                    <YAxis
-                        domain={['auto', 'auto']}
-                        type="number"
-                        interval={0}
-                        label={{
-                            value: ``,
-                            style: { textAnchor: 'middle' },
-                            angle: -90,
-                            position: 'left',
-                            offset: 0,
-                        }}
-                        allowDataOverflow={true}
-                    />
-
-                    <XAxis
-                        dataKey="timestamp"
-                        domain={['auto', 'auto']}
-                        interval={0}
-                        type="number"
-                        label={{
-                            key: 'time',
-                            value: 'x',
-                            position: 'bottom',
-                        }}
-                        allowDataOverflow={true}
-                    />
-
-                    <ReferenceLine
-                        y={0}
-                        stroke="gray"
-                        strokeWidth={3}
-                    />
-
-                    <Tooltip />
-                </LineChart>
-            </ResponsiveContainer>
+        <div className='w-full h-full'>
+            <Line data={data} options={options} />
         </div>
     );
 };
 
-export default GraphLine;
+export default LiveChart;
+
