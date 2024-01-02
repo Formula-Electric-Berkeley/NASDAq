@@ -1,0 +1,15 @@
+:root {
+    --yellow: #fbb414;
+    --blue: #1e478a;
+    --gray: #808080;
+}
+
+.selector-icon {
+    transition: 0.3s;
+}
+
+.selector-icon:hover {
+    cursor: pointer;
+    color: var(--yellow);
+    transition: 0.3s;
+}
