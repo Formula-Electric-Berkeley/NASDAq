@@ -52,7 +52,7 @@ const LiveChart = () => {
     }, []);
 
     return (
-        <div className='w-full h-full'>
+        <div className='w-full h-full p-5'>
             <Line data={data} options={options} />
         </div>
     );
