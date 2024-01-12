@@ -9,7 +9,7 @@ const Gauge = ({ units, value }) => {
     const [currentValueDemo, setCurrentValueDemo] = useState(50);
 
     useEffect(() => {
-        // sendAsync('sql SELECT * FROM serial_data').then((result) => console.log(result));
+        //sendAsync('sql SELECT * FROM serial_data').then((result) => console.log(result));
         sendAsync('PING').then((result) => console.log(result));
         //sendAsync("INSERT INTO serial_data (data) VALUES ('asdf')").then((result) => console.log(result));
 
