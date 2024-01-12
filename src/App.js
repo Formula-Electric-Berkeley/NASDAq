@@ -3,13 +3,13 @@ import Layout from './components/Layout/Layout.js'
 import './index.css'
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}></Route>
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}></Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
