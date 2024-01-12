@@ -22,6 +22,14 @@ ipcMain.on('asynchronous-message', (event, arg) => {
         console.log("arg", arg)
         const parser = device.pipe(new ReadlineParser({ delimiter: '\n' }))
         parser.on('data', function(data) {
+            database.run(`INSERT INTO serial_data (data) VALUES(?)`, [data], function(err) {
+                if (err) {
+                    return console.log(err.message);
+                }
+                // get the last insert id
+                console.log(`A row has been inserted with rowid ${this.lastID} and data ${data}`);
+            });
+
             console.log('>', data)
         })
     }
