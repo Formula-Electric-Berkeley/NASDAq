@@ -10,6 +10,7 @@ const Gauge = ({ units, value }) => {
 
     useEffect(() => {
         sendAsync('SELECT * FROM serial_data').then((result) => console.log(result));
+        //sendAsync("INSERT INTO serial_data (data) VALUES ('asdf')").then((result) => console.log(result));
 
         const timer = setTimeout(() => {
             setCurrentValueDemo(Math.random() * 100);
