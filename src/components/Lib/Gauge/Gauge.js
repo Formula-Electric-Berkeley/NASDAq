@@ -3,23 +3,13 @@ import GaugeComponent from 'react-gauge-component';
 
 import sendAsync from '../../../IPC-controller/renderer';
 
-//const sqlite3 = require('sqlite3').verbose();
-//const path = require('path');
-
-//const dbPath = path.resolve(__dirname, 'database.db');
-//const db = new sqlite3.Database(dbPath);
-
 const { app } = window.require('@electron/remote');
 
 const Gauge = ({ units, value }) => {
     const [currentValueDemo, setCurrentValueDemo] = useState(50);
 
-//    db.each("SELECT * FROM serial_data", (err, row) => {
-//        console.log(`\n${row.data}\n`);
-//    });
-
     useEffect(() => {
-        sendAsync('ping').then((result) => console.log(result));
+        sendAsync('SELECT * FROM serial_data').then((result) => console.log(result));
 
         const timer = setTimeout(() => {
             setCurrentValueDemo(Math.random() * 100);
