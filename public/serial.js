@@ -25,7 +25,7 @@ function insertData(data) {
 
 function getAllData() {
     db.each("SELECT * FROM serial_data", (err, row) => {
-        console.log(`\n${row.data}\n`);
+        //console.log(`\n${row.data}\n`);
     });
 }
 
