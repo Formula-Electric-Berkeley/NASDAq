@@ -4,6 +4,7 @@ import 'flexlayout-react/style/dark.css';
 import GraphLine from '../Lib/GraphLine/GraphLine';
 import Gauge from '../Lib/Gauge/Gauge';
 import Selector from './Selector';
+import SerialMonitor from '../Views/SerialMonitor/SerialMonitor';
 
 var json = {
     "global": {
@@ -29,7 +30,7 @@ var json = {
                     "type": "tab",
                     "id": "#47dcf2fe-a1ca-43f9-b062-afdbdb8390de",
                     "name": "SERIAL MONITOR",
-                    "component": "grid",
+                    "component": "SerialMonitor",
                     "enableClose": false,
                     "icon": "icons/terminal.svg"
                 },
@@ -172,8 +173,12 @@ const Landing = () => {
     }
 
     const factory = (node) => {
-        console.log(model.toJson());
+        //console.log(model.toJson());
         var component = node.getComponent();
+
+        if (component === "SerialMonitor") {
+            return <SerialMonitor/>;
+        }
 
         if (component === "Selector") {
             return <Selector/>;
