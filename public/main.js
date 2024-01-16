@@ -23,7 +23,7 @@ function createWindow() {
     require('@electron/remote/main').enable(win.webContents)
 
     //load the index.html from a url
-    win.loadURL('http://localhost:3000');
+    win.loadURL('http://localhost:3749');
 
     // Open the DevTools.
     // win.webContents.openDevTools()
