@@ -9,20 +9,25 @@ const database = new sqlite3.Database('./public/db.sqlite3', (err) => {
 
 const device = new SerialPort({
     path: '/dev/tty.usbserial-A50285BI',
-    baudRate: 9600,
+    baudRate: 115200,
 })
+
+let testGraphData = [0,1,2,3,4,5,6,7,8,9]
 
 const parser = device.pipe(new ReadlineParser({ delimiter: '\n' }))
 parser.on('data', function(data) {
-//     database.run(`INSERT INTO serial_data (data) VALUES(?)`, [data], function(err) {
-//         if (err) {
-//             return console.log(err.message);
-//         }
-// 
-//         console.log(`A row has been inserted with rowid ${this.lastID} and data ${data}`);
-//     });
-// 
-//     console.log('>', data)
+    //     database.run(`INSERT INTO serial_data (data) VALUES(?)`, [data], function(err) {
+    //         if (err) {
+    //             return console.log(err.message);
+    //         }
+    // 
+    //         console.log(`A row has been inserted with rowid ${this.lastID} and data ${data}`);
+    //     });
+    // 
+    testGraphData.shift()
+    testGraphData.push(parseInt(data.charAt(data.length - 1)));
+    console.log(data.charAt(data.length - 1))
+    console.log('>', data)
 })
 
 ipcMain.on('asynchronous-message', (event, arg) => {
@@ -32,7 +37,8 @@ ipcMain.on('asynchronous-message', (event, arg) => {
             event.reply('asynchronous-reply', (err && err.message) || rows);
         });
     } else {
-        console.log("arg", arg)
+        event.reply('asynchronous-reply', testGraphData);
+        //console.log("arg", arg)
     }
 });
 
