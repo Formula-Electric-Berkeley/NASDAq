@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
+const path = require('path')
 var serial = require("./serial")
 
 require('../src/IPC-controller/main');
@@ -9,6 +10,7 @@ function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
         title: "NASQAq",
+        icon: path.join(__dirname, 'favicon.ico'),
         width: 800,
         height: 600,
         webPreferences: {
