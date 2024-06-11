@@ -26,9 +26,17 @@ parser.on('data', function(data) {
     //         console.log(`A row has been inserted with rowid ${this.lastID} and data ${data}`);
     //     });
     // 
-    testGraphData.shift()
-    testGraphData.push(parseInt(data.charAt(data.length - 1)));
-    console.log(data.charAt(data.length - 1))
+    // testGraphData.shift()
+    // testGraphData.push(parseInt(data.charAt(data.length - 1)));
+
+    if (data.charAt(0) === 'T') {
+        testTempData.push(data.substr(2))
+    }
+
+    if (data.charAt(0) === 'V') {
+        testVoltageData.push(data.substr(2))
+    }
+
     console.log('>', data)
 })
 
