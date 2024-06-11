@@ -12,6 +12,8 @@ const device = new SerialPort({
     baudRate: 115200,
 })
 
+const MAX_DATA_POINTS = 30
+
 let testGraphData = [0,1,2,3,4,5,6,7,8,9]
 let testTempData = [0,4,2,5,4,6,6,10,8,9]
 let testVoltageData = [3,1,2,7,4,6,8,7,8,9]
@@ -31,10 +33,18 @@ parser.on('data', function(data) {
 
     if (data.charAt(0) === 'T') {
         testTempData.push(data.substr(2))
+
+        if (testTempData.length > MAX_DATA_POINTS) {
+            testTempData.shift()
+        }
     }
 
     if (data.charAt(0) === 'V') {
         testVoltageData.push(data.substr(2))
+
+        if (testVoltageData.length > MAX_DATA_POINTS) {
+            testVoltageData.shift()
+        }
     }
 
     console.log('>', data)
